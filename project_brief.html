@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>One-page brief — The AYCE Playbook</title>
+<style>
+  @page { size: A4; margin: 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #16202c; margin: 0; padding: 22px; max-width: 960px; margin: 0 auto;
+    font-size: 12.5px; line-height: 1.42;
+  }
+  header { border-bottom: 3px solid #e4572e; padding-bottom: 10px; margin-bottom: 14px; }
+  .eyebrow { font-size: 10px; letter-spacing: .18em; color: #e4572e; font-weight: 800; }
+  h1 { font-size: 27px; margin: 4px 0 2px; letter-spacing: -.02em; }
+  .sub { color: #5a6774; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 26px; margin: 12px 0; }
+  .f { padding: 4px 0; border-bottom: 1px solid #e6e9ee; }
+  .k { font-size: 9.5px; letter-spacing: .11em; text-transform: uppercase; color: #7a8794; font-weight: 800; }
+  .v { font-size: 12.5px; color: #16202c; }
+  .fill { color: #c2410c; font-weight: 700; }
+  h2 { font-size: 14px; margin: 16px 0 7px; color: #0f2a3a; }
+  ol { margin: 0; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  strong { color: #b23a17; }
+  .note { background: #fff6ef; border-left: 3px solid #e4572e; padding: 8px 11px; margin: 12px 0; font-size: 11.5px; }
+  .method { background: #eef6f5; border-left: 3px solid #4ea8a0; padding: 8px 11px; font-size: 11.5px; }
+  footer { margin-top: 14px; border-top: 1px solid #e6e9ee; padding-top: 8px; font-size: 10.5px; color: #7a8794; }
+  @media print { body { padding: 0; } h2 { page-break-after: avoid; } li { page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">ONE-PAGE PROJECT BRIEF</div>
+  <h1>The AYCE Playbook — What your sushi dollar actually buys</h1>
+  <div class="sub">An interactive Dash dashboard about getting the most value from sushi</div>
+</header>
+
+<div class="grid">
+  <div class="f"><div class="k">Team</div><div class="v">Luke Cha, Emily Chue, Fiona Zhu, Albina Martynenko</div></div>
+  <div class="f"><div class="k">Render URL</div><div class="v fill">[https://____.onrender.com]</div></div>
+  <div class="f"><div class="k">GitHub URL</div><div class="v fill">[https://github.com/____/____]</div></div>
+  <div class="f"><div class="k">Audience</div><div class="v">Students and sushi eaters choosing what to order at a fixed-price / AYCE deal.</div></div>
+</div>
+
+<div class="f"><div class="k">Main question</div><div class="v"><strong>Where does your sushi dollar actually go — and what should you order first?</strong></div></div>
+
+<div class="f" style="margin-top:6px"><div class="k">Dataset links / source</div><div class="v">
+  <a href="https://www.kaggle.com/datasets/troykueh/sushi-restaurant-sales-simulation-10-years">Sushi Restaurant Sales Simulation — 10 Years (Kaggle)</a>.
+  6 CSVs; 83,890 orders, ~998,920 item lines, 2015-01-01 → 2024-12-31:
+  <em>sushi_orders, sushi_order_items, sushi_daily_pnl, sushi_customers, sushi_reviews, sushi_staff</em>.
+</div></div>
+
+<h2>Key findings</h2>
+<ol>
+  <li><strong>Value varies six-fold:</strong> ingredients are <strong>43%</strong> of a Sashimi Platter's price but only <strong>7%</strong> of Green Tea. Omakase 42%, Tuna Nigiri 41%, Yellowtail Nigiri 39% lead; Miso Soup 11% and Edamame 14% lag.</li>
+  <li><strong>Popular ≠ valuable:</strong> the top orders are California Roll (136,367; 28%), Spicy Tuna Roll (108,172; 32%), Salmon Nigiri (104,982; 38%) and Tuna Nigiri (86,620; 41%) — yet Miso Soup (#6) and Green Tea (#7) are also best-sellers.</li>
+  <li><strong>The bill rose, not the group size:</strong> spend per person went from <strong>$30.12 (2015)</strong> to <strong>$46.48 (2024), +54%</strong>, while average party size stayed ~2.73.</li>
+  <li><strong>Ratings improved:</strong> 3.31 (2015) → 3.92 (2024), with a 2020 dip to 3.35. Takeaway rated highest (3.72), delivery lowest (3.51).</li>
+  <li><strong>No "cheap day":</strong> weekend spend/person ($40.33) ≈ weekday ($40.39); the app makes no such claim.</li>
+  <li><strong>Actionable:</strong> at a <strong>$50</strong> per-person budget the plate optimiser reaches <strong>~40%</strong> ingredient share vs <strong>~31%</strong> for a typical order — ~9 points more food for the same money.</li>
+</ol>
+
+<div class="note"><strong>AI use note (draft — confirm with instructor):</strong> An AI coding assistant helped explore the data, build the Dash app and its design, and draft this material. The team verified every figure against the source data, chose the framing and the ingredient-share proxy, corrected the claims and made all final decisions. Nothing was submitted automatically.</div>
+
+<div class="method"><strong>Method:</strong> ingredient share = median ingredient cost ÷ median menu price, from item-level sales. It is a transparent cost proxy, not a measure of taste, freshness or nutrition. <strong>Nutrition note:</strong> the dataset has no nutrition fields — the macro values in the Fuel &amp; Spend tab are clearly labelled illustrative estimates for a standard portion (editable in data/nutrition_estimates.csv), not measured data and not medical advice.</div>
+
+<footer>Four tabs — Value Playbook · The Bill · Build Your Plate · Fuel &amp; Spend. Shared year and channel filters, click-to-inspect charts, a ten-year animation, a plate optimiser, and a macro tracker that recommends your next order within a dollar cap.</footer>
+</body>
+</html>
